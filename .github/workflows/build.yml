@@ -5,7 +5,21 @@ on:
     branches: main
 
 jobs:
-  shared-build-workflow:
+  build:
     uses: "./.github/workflows/build.reusable.yml"
     with:
       should_push: true
+  deploy-test:
+    uses: ./.github/workflows/deploy.reusable.yml
+    needs: build
+    with:
+      environment: test
+      imageName: ${{needs.build.outputs.imageName}}
+      digest: ${{needs.build.outputs.digest}}
+  deploy-prod:
+    uses: ./.github/workflows/deploy.reusable.yml
+    needs: [deploy-test, build]
+    with:
+      environment: prod
+      imageName: ${{needs.build.outputs.imageName}}
+      digest: ${{needs.build.outputs.digest}}
