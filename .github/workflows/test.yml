@@ -3,7 +3,8 @@ name: Build and test
 
 # Trigger, run on push on any branch
 on:
-  push:
+  pull_request:
+    branches: main
 
 jobs:
   lint:
