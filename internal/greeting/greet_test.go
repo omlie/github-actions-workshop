@@ -29,7 +29,7 @@ func TestGreetTwoNames(t *testing.T) {
 }
 
 func TestGreetThreeNames(t *testing.T) {
-	names := []string{"Per", "Pål", "Espen Askeladd"}
+	names := []string{"Per", "Pål", "Espen Askeladde"}
 	want := "Hello Per, Pål and Espen Askeladd"
 
 	got, err := Greet(names)
