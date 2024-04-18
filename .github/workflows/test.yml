@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: "Build application"
+    name: "Lint"
     runs-on: "ubuntu-latest"
     steps:
       # Checkout code
@@ -24,7 +24,7 @@ jobs:
           exit "$no_unformatted_files"
 
   test: # The 'build' job
-    name: "Build application"
+    name: "Test application"
     runs-on: "ubuntu-latest"
     steps:
       # Checkout code
