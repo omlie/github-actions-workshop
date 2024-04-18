@@ -1,0 +1,25 @@
+# The "display name", shown in the GitHub UI
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: environment
+      imageName:
+        required: true
+        type: string
+      digest:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    name: "Deploy"
+    runs-on: "ubuntu-latest"
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Print var
+        run: |
+          echo '${{vars.WORKSHOP_ENV_VARIABLE}}'
