@@ -14,10 +14,10 @@ func TestGreetOneName(t *testing.T) {
 	if got != want {
 		t.Fatalf("Wanted '%s', got '%s'", want, got)
 	}
-}s
+}
 func TestGreetTwoNames(t *testing.T) {
 	names := []string{"Per", "Espen Askeladd"}
-	want := "Hello Persss and Espen Askeladd"
+	want := "Hello Per and Espen Askeladd"
 
 	got, err := Greet(names)
 	if err != nil {
